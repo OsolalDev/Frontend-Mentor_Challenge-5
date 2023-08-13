@@ -1,0 +1,195 @@
+:root {
+  /* Primary text - Title Hover */
+  --veryDarkDesBlue: #1d1e35;
+  --softRed: #f47c57;
+
+  /* Gradient BackGround */
+  --softViolet: #af67e9;
+  --softBlue: #6565e7;
+
+  /* Neutral text */
+  --veryDarkGrayishBlue: #4a4b5e;
+  --darkGrayishBlue: #787887;
+
+  /* Dividers */
+  --lightGrayishBlue: #e7e7e9;
+}
+
+/* GENERAL */
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 12px;
+  background: linear-gradient(var(--softViolet), var(--softBlue));
+}
+
+.challenge {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MAIN CONTAINER */
+.container {
+  background-color: white;
+  border-radius: 20px;
+  width: 900px;
+  height: 500px;
+  display: flex;
+  position: relative;
+  box-shadow: 10px 10px 28px 0px #4a4b5e79;
+}
+
+/* LEFT CONTAINER */
+.container_image-abs {
+  position: absolute;
+  top: 40%;
+  left: -13%;
+  z-index: 1;
+}
+
+.container_left {
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+}
+
+.container_left_bg-pattern {
+  position: absolute;
+  right: 15%;
+  bottom: -30%;
+}
+
+.container_left_wo-image {
+  position: absolute;
+  left: -19%;
+  top: 12%;
+}
+
+.container_left_bg-pattern_mobile {
+  display: none;
+}
+
+.container_left_wo-image_mobile {
+  display: none;
+}
+
+/* RIGHT CONTAINER */
+.container_right {
+  width: 35%;
+  margin: 2rem;
+  align-self: center;
+  margin: auto;
+}
+
+.container_right_dropdown_each-faq {
+  border-bottom: 1px solid var(--lightGrayishBlue);
+}
+
+.container_right_dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: var(--veryDarkGrayishBlue);
+  transition: 0.3s;
+}
+
+.container_right_dropdown:hover {
+  cursor: pointer;
+  color: var(--softRed);
+}
+
+.container_right_dropdown-text {
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: normal;
+  font-size: 12px;
+  color: var(--darkGrayishBlue);
+}
+
+/* PHONE DEVICE */
+@media (max-width: 950px) {
+  .container_image-abs {
+    display: none;
+  }
+
+  .container_left {
+    overflow: visible;
+    height: 100px;
+  }
+
+  .container_left_bg-pattern {
+    display: none;
+  }
+
+  .container_left_wo-image {
+    display: none;
+  }
+
+  .container_left_wo-image_mobile {
+    display: block;
+    width: 80%;
+    position: absolute;
+    z-index: 1;
+    top: -130%;
+    left: 10%;
+  }
+
+  .container_left_bg-pattern_mobile {
+    display: block;
+    width: 80%;
+    position: absolute;
+    top: -150%;
+    left: 10%;
+  }
+
+  .container {
+    width: 350px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container_left {
+    width: 100%;
+  }
+
+  .container_right {
+    width: 80%;
+    padding: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .container_right_title {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+/* ACTIVE STATES */
+/* hides the text */
+.hide {
+  display: none;
+}
+
+/* shows the question in bold font when the dropdown is active */
+.active-dropdown {
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--veryDarkDesBlue);
+}
+
+/* rotates the arrow */
+.rotate-arrow {
+  transform: rotate(180deg);
+}
+
+/* FOOTER */
+.attribution {
+  font-size: 14px;
+  text-align: center;
+}
+.attribution a {
+  color: var(--softRed);
+}
