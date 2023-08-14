@@ -23,14 +23,15 @@ body {
 }
 
 .challenge {
-  height: 100vh;
   display: flex;
+  height: 100vh;
   align-items: center;
   justify-content: center;
 }
 
 /* MAIN CONTAINER */
 .container {
+  margin-top: 10rem;
   background-color: white;
   border-radius: 20px;
   width: 900px;
@@ -80,6 +81,7 @@ body {
   margin: 2rem;
   align-self: center;
   margin: auto;
+  margin-left: 1.5rem;
 }
 
 .container_right_dropdown_each-faq {
@@ -95,7 +97,8 @@ body {
   transition: 0.3s;
 }
 
-.container_right_dropdown:hover {
+.container_right_dropdown:hover,
+.container_right_dropdown:focus {
   cursor: pointer;
   color: var(--softRed);
 }
@@ -106,6 +109,10 @@ body {
   font-weight: normal;
   font-size: 12px;
   color: var(--darkGrayishBlue);
+}
+
+.container_right_dropdown_arrow {
+  transition: 0.3s;
 }
 
 /* PHONE DEVICE */
@@ -159,6 +166,7 @@ body {
     width: 80%;
     padding: 2rem;
     padding-bottom: 3rem;
+    margin-left: 0;
   }
 
   .container_right_title {
@@ -187,7 +195,8 @@ body {
 
 /* FOOTER */
 .attribution {
-  font-size: 14px;
+  margin-top: 4rem;
+  font-size: 20px;
   text-align: center;
 }
 .attribution a {

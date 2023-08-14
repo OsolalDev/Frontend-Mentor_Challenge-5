@@ -1,39 +1,34 @@
 const dropdown = $(".container_right_dropdown_each-faq");
-const allTexts = $(".container_right_dropdown-text");
+let activeDropdown = null;
 
 dropdown.click(function (e) {
   // saves the element clicked in a variable
   let clickedDropdown = e.currentTarget;
 
-  //   Only activates one at a time
-  if ($(clickedDropdown).hasClass("active-dropdown")) {
-    $(clickedDropdown).removeClass("active-dropdown");
-    $(clickedDropdown)
-      .find(".container_right_dropdown_arrow")
-      .removeClass("rotate-arrow");
-    allTexts.each(function (i) {
-      $(allTexts[i]).hide(300);
-    });
+  //   Only activates one DropDown(dd) at a time
+  // Check if the clicked dd is the one already active.
+  if ($(clickedDropdown).is(activeDropdown)) {
+    // if it is, close it and do anything else
+    closeDropDown(clickedDropdown);
     //
   } else {
-    if ($(dropdown).hasClass("active-dropdown")) {
-      $(dropdown).removeClass("active-dropdown");
-      $(dropdown)
-        .find(".container_right_dropdown_arrow")
-        .removeClass("rotate-arrow");
-      allTexts.each(function (i) {
-        $(allTexts[i]).hide(300);
-      });
-    }
-    //
-    $(clickedDropdown).addClass("active-dropdown");
-    $(clickedDropdown)
-      .find(".container_right_dropdown_arrow")
-      .addClass("rotate-arrow");
-    allTexts.each(function (i) {
-      if ($(allTexts[i].parentElement).hasClass("active-dropdown")) {
-        $(allTexts[i]).show(300);
-      }
-    });
+    // If it is not the same dd, close the active one and then activate the clicked one
+    closeDropDown(activeDropdown);
+    openDropDown(clickedDropdown);
   }
 });
+
+// Open and Close DropDowns functions to avoid repetition
+function closeDropDown(dd) {
+  $(dd).removeClass("active-dropdown");
+  $(dd).find(".container_right_dropdown_arrow").removeClass("rotate-arrow");
+  $(dd).find(".container_right_dropdown-text").hide(300);
+  activeDropdown = null;
+}
+
+function openDropDown(dd) {
+  $(dd).addClass("active-dropdown");
+  $(dd).find(".container_right_dropdown_arrow").addClass("rotate-arrow");
+  $(dd).find(".container_right_dropdown-text:hidden").show(300);
+  activeDropdown = dd;
+}
